@@ -6,6 +6,8 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <% for (let x = 0; x < 10; x++) { %>
+      <p>Welcome to <%= title %>[<%= x %>]</p>
+    <% } %>
   </body>
 </html>
