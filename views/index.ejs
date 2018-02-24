@@ -1,13 +1,27 @@
 <div class="container">
+  <form action="">
   <div class="columns">
     <div class="column">
       <div class="box has-text-centered" style= "font-family: Roboto">Material</div>
+      <div class="field">
+      <div class="control">
+        <div class="select is-hovered is-expanded is-medium is-primary" style="min-width: 100%">
+          <select style="min-width: 100%">
+            <option>Aluminum (Default)</option>
+            <option>Diamonds</option>
+          </select>
+        </div>
+      </div>
+      </div>
+      </div>
+      <div class="column">
+        <div class="box has-text-centered" style= "font-family: Roboto"> Hull Thickness</div>
+        <input class="slider is-fullwidth is-medium is-circle is-info" step="1" min="0" max="100" value="50" type="range" style="min-height: 33% ">
+      </div>
+      <div class="column">
+        <div class="box has-text-centered" style= "font-family: Roboto">Radius</div>
+        <input class="slider is-fullwidth is-medium is-circle is-info" step="1" min="0" max="100" value="50" type="range" style="min-height: 33% ">
+      </div>
     </div>
-    <div class="column">
-      <div class="box has-text-centered" style= "font-family: Roboto"> Hull Thickness</div>
-    </div>
-    <div class="column">
-      <div class="box has-text-centered" style= "font-family: Roboto">Radius</div>
-    </div>
-  </div>
+  </form>
 </div>
