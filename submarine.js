@@ -1,3 +1,4 @@
+const length=180;
 function crush(exPressure, radius, yieldStrength, thickness ) {
    temp=(exPressure*radius)/(2*yieldStrength);
    if (thickness >= temp) {
@@ -21,10 +22,17 @@ function warning(exPressure, radius, yieldStrength, thickness ){
     }
 
 }
+function pressureOnHull(exPressure,radius){
+    area=2*Math.PI*radius*length+2*Math.PI*radius**2;
+    areaInMeters=area/3.28;
+    return areaInMeters*exPressure;
+
+}
 
 modules.export = {
     crush,
     calcDepth,
     calcPressure,
-    warning
+    warning,
+    pressureOnHull
 };
