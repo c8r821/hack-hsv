@@ -1,0 +1,63 @@
+<section class="section">
+    <div class="container">
+        <div class="box">
+            <h1 class="title is-3">
+                Administration
+            </h1>
+            <form action="/admin/materials/delete" method="post" id="delete">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <thead>
+                    <th>Material Name</th>
+                    <th><abbr title="In Mpa">Material Yield Strength</abbr></th>
+                    <th><strong>Delete?</strong></th>
+                    </thead>
+                    <tbody>
+                    <% materialTypes.forEach(type => { %>
+                    <tr>
+                        <td>
+                            <%= type.name %>
+                        </td>
+                        <td>
+                            <%= type.yieldStrength %>
+                        </td>
+                        <td>
+                            <a href="#" class="delete-type button is-danger" id="<%= type.name %>">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            </form>
+            <form action="/admin/materials/add" method="POST">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Add New Material</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                                <input class="input" type="text" placeholder="Name" name="name">
+                                <span class="icon is-small is-left">
+                              <i class="fas fa-user"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="number" placeholder="Yield Strength" name="ys">
+                                <span class="icon is-small is-left">
+                              <i class="fas fa-balance-scale"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <button class="button is-success" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script defer src="/javascripts/admin.js"></script>
