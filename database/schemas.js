@@ -12,8 +12,13 @@ const materials = mongoose.model('material', material);
 const submarine = new Schema({
     name: String,
     material: {type: material},
-    length: Number,
+    hullThickness: Number,
     radius: {type: Number, required: true}
 });
 
-module.exports = materials;
+const submarines = mongoose.model('submarine', submarine);
+
+module.exports = {
+    materials,
+    submarines
+};

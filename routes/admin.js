@@ -2,18 +2,14 @@ const express = require('express');
 const router = express.Router();
 const schemas = require('../database/schemas');
 
-router.get('/', function(req, res) {
-    schemas.find({}, function(err, docs) {
-        if (err)
-            res.json(err);
-        else
-            res.render('admin/index', {title: "Administration", materialTypes: docs});
-    })
+router.get('/', async function(req, res) {
+    let materials = await schemas.materials.find({});
+    let submarines = await schemas.submarines.find({});
+    res.render('admin/index', {title: "Administration", materials, submarines});
 });
 
 router.post('/materials/delete', function(req, res) {
-    console.log(req.body.toDel);
-    schemas.remove({name: req.body.toDel}, function(err, doc) {
+    schemas.materials.remove({name: req.body.toDel}, function(err, doc) {
         if (err)
             res.json(err);
         else
@@ -22,9 +18,30 @@ router.post('/materials/delete', function(req, res) {
 });
 
 router.post('/materials/add', function(req, res) {
-    schemas.create({
+    schemas.materials.create({
         name: req.body.name,
         yieldStrength: req.body.ys
+    });
+
+    res.redirect('back');
+});
+
+router.post('/submarines/delete', function(req, res) {
+    schemas.submarines.remove({name: req.body.toDel}, function(err, doc) {
+        if (err)
+            res.json(err);
+        else
+            res.redirect('back');
+    })
+});
+
+router.post('/submarines/add', async function(req, res) {
+    let material = await schemas.materials.findOne({name: req.body.material});
+    schemas.submarines.create({
+        name: req.body.name,
+        material,
+        hullThickness: req.body.hullThickness,
+        radius: req.body.radius
     });
 
     res.redirect('back');

@@ -4,7 +4,7 @@
             <h1 class="title is-3">
                 Administration
             </h1>
-            <form action="/admin/materials/delete" method="post" id="delete">
+            <form action="/admin/materials/delete" method="post" id="materialDelete">
                 <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
                     <thead>
                     <th>Material Name</th>
@@ -12,7 +12,7 @@
                     <th><strong>Delete?</strong></th>
                     </thead>
                     <tbody>
-                    <% materialTypes.forEach(type => { %>
+                    <% materials.forEach(type => { %>
                     <tr>
                         <td>
                             <%= type.name %>
@@ -21,7 +21,7 @@
                             <%= type.yieldStrength %>
                         </td>
                         <td>
-                            <a href="#" class="delete-type button is-danger" id="<%= type.name %>">
+                            <a href="#" class="delete-materials-type button is-danger" id="<%= type.name %>">
                                 <i class="fas fa-times"></i>
                             </a>
                         </td>
@@ -47,6 +47,90 @@
                         <div class="field">
                             <p class="control is-expanded has-icons-left has-icons-right">
                                 <input class="input" type="number" placeholder="Yield Strength" name="ys">
+                                <span class="icon is-small is-left">
+                              <i class="fas fa-balance-scale"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <button class="button is-success" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="box">
+            <form action="/admin/submarines/delete" method="post" id="subDelete">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <thead>
+                    <th>Submarine Name</th>
+                    <th><abbr title="In Mpa">Material Type</abbr></th>
+                    <th><abbr title="In feet">Hull Thickness</abbr></th>
+                    <th><abbr title="In feet">Radius</abbr></th>
+                    <th><strong>Delete?</strong></th>
+                    </thead>
+                    <tbody>
+                    <% submarines.forEach(sub => { %>
+                    <tr>
+                        <td>
+                            <%= sub.name %>
+                        </td>
+                        <td>
+                            <%= sub.material.name %>
+                        </td>
+                        <td>
+                            <%= sub.hullThickness %>
+                        </td>
+                        <td>
+                            <%= sub.radius %>
+                        </td>
+                        <td>
+                            <a href="#" class="delete-submarine-type button is-danger" id="<%= sub.name %>">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            </form>
+            <form action="/admin/submarines/add" method="POST">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Add New Submarine</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                                <input class="input" type="text" placeholder="Name" name="name">
+                                <span class="icon is-small is-left">
+                              <i class="fas fa-user"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left has-icons-right">
+                            <div class="select">
+                                <select name="material">
+                                    <% materials.forEach(type => { %>
+                                    <option value="<%= type.name %>"><%= type.name %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="number" placeholder="Hull Thickness" name="hullThickness">
+                                <span class="icon is-small is-left">
+                              <i class="fas fa-balance-scale"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="number" placeholder="Radius" name="radius">
                                 <span class="icon is-small is-left">
                               <i class="fas fa-balance-scale"></i>
                             </span>
