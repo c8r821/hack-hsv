@@ -11,7 +11,7 @@ function calcDepth(pressure) {
     return (pressure-0.101325)/0.003063;
 }
 function warning(depth, radius, yieldStrength, thickness){
-        if(crush(depth+5,radius,yieldStrength,thickness)) {
+        if(crush(depth+10,radius,yieldStrength,thickness)) {
              return true
         }
 }

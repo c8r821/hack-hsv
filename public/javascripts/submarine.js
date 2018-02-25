@@ -19,8 +19,8 @@ $(function() {
     ["#material", "[name=hthickness]", "[name=radius]"].forEach((ident) => {
         $(ident).trigger('change');
     });
-
-    let  windowHeight = $(window).height(), pageHeight = $('body').height();
+    let hasbeendead = 0;
+    let windowHeight = $(window).height(), pageHeight = $('body').height();
     // init controller
     console.log(windowHeight);
     let controller = new ScrollMagic.Controller();
@@ -44,8 +44,10 @@ $(function() {
                 $('#gonnaDie').hide();
             }
 
-            if (crush(depth, radius, +material, hthickness))
+            if (!hasbeendead && crush(depth, radius, +material, hthickness)) {
                 $(".modal").addClass("is-active");
+                hasbeendead = 1;
+            }
             // console.log(material);
             // if (crush(depth, radius, +material, hthickness))
             //     console.log('deded');
@@ -58,6 +60,7 @@ $(function() {
             $('#depth').text('0.0 ft');
             $('#pressure').text('0.0 ft');
             $('#hpressure').text('0.0 ft');
+            hasbeendead = 0;
         }
     })
 });
