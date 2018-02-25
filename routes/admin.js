@@ -5,7 +5,8 @@ const schemas = require('../database/schemas');
 router.get('/', async function(req, res) {
     let materials = await schemas.materials.find({});
     let submarines = await schemas.submarines.find({});
-    res.render('admin/index', {title: "Administration", materials, submarines});
+    let levels = await schemas.levels.find({});
+    res.render('admin/index', {title: "Administration", materials, submarines, levels});
 });
 
 router.post('/materials/delete', function(req, res) {
@@ -20,7 +21,9 @@ router.post('/materials/delete', function(req, res) {
 router.post('/materials/add', function(req, res) {
     schemas.materials.create({
         name: req.body.name,
-        yieldStrength: req.body.ys
+        yieldStrength: req.body.ys,
+        pricePerPound: req.body.ppp,
+        density: req.body.density
     });
 
     res.redirect('back');
@@ -45,6 +48,24 @@ router.post('/submarines/add', async function(req, res) {
     });
 
     res.redirect('back');
+});
+
+router.post('/levels/add', function(req, res) {
+    schemas.levels.create({
+        name: req.body.name,
+        level: req.body.level
+    });
+
+    res.redirect('back');
+});
+
+router.post('/levels/delete', function(req, res) {
+    schemas.levels.remove({name: req.body.toDel}, function(err, doc) {
+        if (err)
+            res.json(err);
+        else
+            res.redirect('back');
+    })
 });
 
 module.exports = router;
