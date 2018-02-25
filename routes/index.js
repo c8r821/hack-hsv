@@ -21,11 +21,5 @@ router.get('/dsc', function(req, res, next) {
     res.render('dsc', { title: 'Express' });
 });
 
-router.get('/price', function(req, res, next) {
-    res.render('price', { title: 'Express' });
-});
 
-router.post('/levels/update', function() {
-
-});
 module.exports = router;
