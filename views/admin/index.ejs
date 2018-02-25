@@ -9,6 +9,8 @@
                     <thead>
                     <th>Material Name</th>
                     <th><abbr title="In Mpa">Material Yield Strength</abbr></th>
+                    <th>Price Per Pound</th>
+                    <th>Density</th>
                     <th><strong>Delete?</strong></th>
                     </thead>
                     <tbody>
@@ -19,6 +21,12 @@
                         </td>
                         <td>
                             <%= type.yieldStrength %>
+                        </td>
+                        <td>
+                            <%= type.pricePerPound %>
+                        </td>
+                        <td>
+                            <%= type.density %>
                         </td>
                         <td>
                             <a href="#" class="delete-materials-type button is-danger" id="<%= type.name %>">
@@ -49,6 +57,22 @@
                                 <input class="input" type="number" placeholder="Yield Strength" name="ys">
                                 <span class="icon is-small is-left">
                               <i class="fas fa-balance-scale"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="number" placeholder="Price Per Pound" name="ppp">
+                                <span class="icon is-small is-left">
+                              <i class="fas fa-dollar-sign"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="number" placeholder="Density" name="density">
+                                <span class="icon is-small is-left">
+                              <i class="fas fa-quinscape"></i>
                             </span>
                             </p>
                         </div>
@@ -133,6 +157,63 @@
                                 <input class="input" type="number" placeholder="Radius" name="radius" step="any">
                                 <span class="icon is-small is-left">
                               <i class="fas fa-balance-scale"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <button class="button is-success" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="box">
+            <form action="/admin/levels/delete" method="post" id="levelDelete">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <thead>
+                    <th>Level Name</th>
+                    <th>Level</th>
+                    <th><strong>Delete?</strong></th>
+                    </thead>
+                    <tbody>
+                    <% levels.forEach(level => { %>
+                    <tr>
+                        <td>
+                            <%= level.name %>
+                        </td>
+                        <td>
+                            <%= level.level %>
+                        </td>
+                        <td>
+                            <a href="#" class="delete-level-type button is-danger" id="<%= level.name %>">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            </form>
+            <form action="/admin/levels/add" method="POST">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Add New Level</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                                <input class="input" type="text" placeholder="Name" name="name">
+                                <span class="icon is-small is-left">
+                              <i class="fas fa-user"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left has-icons-right">
+                                <input class="input" type="number" placeholder="Level" name="level" step="any">
+                                <span class="icon is-small is-left">
+                              <i class="fas fa-hashtag"></i>
                             </span>
                             </p>
                         </div>
