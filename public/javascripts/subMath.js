@@ -1,6 +1,6 @@
 const length=180;
 function crush(depth, radius, yieldStrength, thickness ) {
-   temp=Math.sqrt(calcPressure(depth) * 72.5 * radius) / (1.5 * yieldStrength);
+   temp=Math.sqrt(calcPressure(depth) * 72.5 * radius) / (2 * yieldStrength);
    console.log("min: ", temp, "real: ", thickness);
    return (thickness < temp);
 }
