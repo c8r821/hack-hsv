@@ -28,7 +28,6 @@ function pressureOnHull(exPressure,radius){
     return areaInMeters*exPressure;
 
 }
-
 modules.export = {
     crush,
     calcDepth,
