@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-bottom: 0.1vh">
     <div class="columns">
         <div class="column">
             <div class="card">
@@ -42,11 +42,15 @@
             <progress class="progress is-success" id="food" value="70" max="100">15%</progress>
         </div>
     </div>
+    <br>
     <div class="card">
         <div class="card-content">
             <h1 class="title is-4" id="can" data-value="124">O2 Canisters Remaining: 124 </h1>
         </div>
     </div>
+    <br>
+    <br>
 </div>
 
+<%- contentFor('scripts') %>
 <script defer src="/javascripts/levels.js"></script>

@@ -10,7 +10,7 @@ router.get('/', async function(req, res, next) {
 });
 
 router.get('/levels', function(req, res, next) {
-    res.render('levels', { title: 'Express' });
+    res.render('levels', { title: 'Express', styling: "background-color: #91d5ff"});
 });
 
 router.get('/about', function(req, res, next) {
