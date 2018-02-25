@@ -44,9 +44,13 @@ $(function() {
                 $('#gonnaDie').hide();
             }
 
-            if (!hasbeendead && crush(depth, radius, +material, hthickness)) {
-                $(".modal").addClass("is-active");
-                hasbeendead = 1;
+            if (crush(depth, radius, +material, hthickness)) {
+                if (!hasbeendead) {
+                    $(".modal").addClass("is-active");
+                    hasbeendead = 1;
+                }
+            } else {
+                hasbeendead = 0;
             }
             // console.log(material);
             // if (crush(depth, radius, +material, hthickness))
