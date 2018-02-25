@@ -20,4 +20,8 @@ router.get('/about', function(req, res, next) {
 router.get('/dsc', function(req, res, next) {
     res.render('dsc', { title: 'Express' });
 });
+
+router.get('/price', function(req, res, next) {
+    res.render('price', { title: 'Express' });
+});
 module.exports = router;

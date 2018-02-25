@@ -1,16 +1,52 @@
 <div class="container">
-    <!--<div class="card">-->
-    <!--</div>-->
+    <div class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h1 class="title is-4">Crew Members: 15</h1>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h1 class="title is-4">Trip Day Count: 65</h1>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h1 class="title is-4">Date: February 24, 2018</h1>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h1 class="title is-4">Time: <iframe src="http://free.timeanddate.com/clock/i64ljcdl/n407/fs20/tct/pct/ftb/th1" frameborder="0" width="83" height="20" allowTransparency="true"></iframe>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card">
         <div class="card-content">
             <h1 class="title is-2">Oxygen Levels</h1>
-            <progress class="progress is-success" value="100" max="100">15%</progress>
-            <h1 class="title is-2">CO2 Levels</h1>
-            <progress class="progress is-success" value="5" max="100">15%</progress>
+            <progress class="progress is-danger" id="oxygen" value="15" max="100">15%</progress>
+            <h1 class="title is-2">Carbon Dioxide Levels</h1>
+            <progress class="progress is-success" id="carbon_dioxide" value="5" max="100">15%</progress>
             <h1 class="title is-2">Fuel Tank</h1>
-            <progress class="progress is-success" value="100" max="100">15%</progress>
+            <progress class="progress is-success" id="fuel" value="44" max="100">15%</progress>
             <h1 class="title is-2">Food</h1>
-            <progress class="progress is-success" value="100" max="100">15%</progress>
+            <progress class="progress is-success" id="food" value="70" max="100">15%</progress>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-content">
+            <h1 class="title is-4" id="can" data-value="124">O2 Canisters Remaining: 124 </h1>
         </div>
     </div>
 </div>
+
+<script defer src="/javascripts/levels.js"></script>
