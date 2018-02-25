@@ -22,3 +22,7 @@ function pressureOnHull(exPressure,radius){
     return areaInMeters*exPressure;
 
 }
+function money(radius,thickness){
+    volume=Math.PI*length*((radius-(radius-thickness)));
+
+}
