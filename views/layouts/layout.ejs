@@ -3,7 +3,7 @@
 <head>
     <% include ../partials/head %>
 </head>
-<body style="min-height: 715vh; background-color: #91d5ff; background-image: url('/images/background.svg'); background-size: contain; background-position: 0 50vh; background-repeat: no-repeat">
+<body style="<%= typeof styling === 'undefined' ? '' : styling %>">
 <% include ../partials/header %>
 
 
