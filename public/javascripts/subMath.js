@@ -11,7 +11,7 @@ function calcDepth(pressure) {
     return (pressure-0.101325)/0.003063;
 }
 function warning(depth, radius, yieldStrength, thickness){
-        if(crush(depth+10,radius,yieldStrength,thickness)) {
+        if(crush(depth+100,radius,yieldStrength,thickness)) {
              return true
         }
 }
@@ -22,7 +22,7 @@ function pressureOnHull(exPressure,radius){
     return areaInMeters*exPressure;
 
 }
-function money(radius,thickness){
+function money(radius,thickness,density,pricePerPound){
     volume=Math.PI*length*((radius-(radius-thickness)));
 
 }
