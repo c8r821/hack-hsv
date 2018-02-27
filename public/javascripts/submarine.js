@@ -22,7 +22,6 @@ $(function() {
     let hasbeendead = 0;
     let windowHeight = $(window).height(), pageHeight = $('body').height();
     // init controller
-    console.log(windowHeight);
     let controller = new ScrollMagic.Controller();
     // create a scene
     new ScrollMagic.Scene({
@@ -52,6 +51,10 @@ $(function() {
             } else {
                 hasbeendead = 0;
             }
+            
+            $(".modal-close").click(function() {
+                $(".modal").removeClass("is-active");
+            });
             // console.log(material);
             // if (crush(depth, radius, +material, hthickness))
             //     console.log('deded');
