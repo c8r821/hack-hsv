@@ -17,8 +17,16 @@ function pressureOnHull(exPressure, radius) {
 }
 
 function money(radius, thickness, density, pricePerPound) {
+    // console.log('radius', radius, 'thickness', thickness, 'density', density, 'ppp', pricePerPound);
     let volume = Math.PI * (length * 30.48) * (((radius * 30.48) - ((radius * 30.48) - (thickness * 30.48))));
-    let mass = density * volume;
+    // console.log("volume", volume);
+    
+    let mass = density * (volume * 28316.8);
+    
+    // console.log('mass', mass);
+    
     let weight = mass * 0.00220462;
+
+    // console.log('weight', weight);
     return weight * pricePerPound;
 }

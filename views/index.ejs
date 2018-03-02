@@ -9,7 +9,7 @@
           <div class="select is-hovered is-expanded is-medium is-primary" style="min-width: 100%">
             <select id="material" style="min-width: 100%">
               <% materials.forEach(material => { %>
-              <option value="<%= material.yieldStrength %>"><%= material.name %></option>
+              <option value='<%- JSON.stringify(material) %>'><%= material.name %></option>
               <% }); %>
             </select>
           </div>
@@ -104,6 +104,11 @@
         <tr>
           <td><strong>Hull Pressure</strong></td>
           <td id="hpressure">0.0 N</td>
+        </tr>
+        </tr>
+        <tr>
+          <td><strong>Cost</strong></td>
+          <td id="cost">$0.00</td>
         </tr>
         </tbody>
       </table>
