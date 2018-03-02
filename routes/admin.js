@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const schemas = require('../database/schemas');
+const basicAuth = require('express-basic-auth')
+
+router.use(basicAuth({
+    users: { 'root': 'toor' },
+    challenge: true,
+}))
 
 router.get('/', async function(req, res) {
     let materials = await schemas.materials.find({});
