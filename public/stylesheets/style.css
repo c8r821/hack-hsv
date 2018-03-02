@@ -3,3 +3,21 @@ html, body {
   min-height: 100vh;
   font-family: "Roboto", 'Helvetica', sans-serif
 }
+
+.is-divider::after {
+  background: rgb(145, 213, 255)!important;
+  color: white!important;
+  font-weight: bold!important;
+}
+.is-divider {
+  border-color: white!important;
+}
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
